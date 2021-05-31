@@ -3,50 +3,54 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
-<body> 
-    <div class="ui center aligned container">
-        <p style="font-size: 70px; margin-top:20px; margin-bottom: 50px;">
-            My Hospital <i class="heartbeat icon"></i> <br>
+<body>
+    <div id="content_div">
+        <p class="_header">
+            My Hospital
+            <i class="heartbeat icon"></i>
+            <br>
+        
+        <p class = "description">
+            <b>Tired of standing in long queues at KMC?</b><br> 
+            We provide an online alternative for 
+            <div id="container">
+                <div id="text"></div>
+                <div id="cursor"></div>
+            </div>
+        </p>
+        <p id="slogan"> Making Healthcare Better Together!!</p>
     </div>
-    
-    <br> <br> 
-    <div class="ui three column grid doubling stackable container">
-        <div class="column left aligned" >
-            <h1 style="font-size: 39.9px;"> Making Health Care Better Together</h1>
-            <h3 style="text-align: left;"> 
-                Tired of standing in long queues at KMC?We provide an online alternative for booking appointments,medical tests and medicines.Book for appointments with doctors,book slots for medical tests and also buy medicines online.We provide this alternative for patients of KMC.We want your hospital experience at KMC to be a smooth one.So from the comfort of your homes do the bookings and come to the hospital at the stipulated time!!!
-                 </h4>
-            <p></p>
-        </div>
-        <div class="column">
-            <p></p>
-            <p></p>
-        </div>
-        <div class="column">
-            <div class="ui segment container center aligned" style="border-radius: 20px;">
-                <h1> <b> Sign in to your account </b> </h1>
-                <br>
-                <form action="Null">
-                    <div class="ui input vertical buttons" style="align-content: center;">
-                        <div class="ui left icon input ">
-                            <i class="user icon"></i>
-                            <input type="email" placeholder="Email/Username" required style="border-radius: 12px;">
-                        </div>
-                        <br>
-                        <div class="ui left icon input">
-                            <i class="lock icon"></i>
-                            <input type="password" placeholder="Password" required style="border-radius: 12px;">
-                        </div>
-                        <br>
-                        <button class="ui primary button" style="font-size: medium; border-radius: 15px;"> Sign in </button>
+    <div id="sign_div">
+        <div class="ui segment center aligned raised" id="container1">
+            <h2 class="ui center aligned icon header">
+                Sign in
+            </h2>
+            <form action=null>
+                <div class="ui input vertical buttons">
+                    <div class="ui left icon input _spaced">
+                        <i class="user icon"></i>
+                        <input type="email" placeholder="Email/Username" required>
                     </div>
-                </form>
-                <br>
-                <br>
-                <b>Don't have an account? <a href="register.html" target="_blank" style="font-size: medium;">Sign-up here!</a></b>
+                    <div class="ui left icon input _spaced">
+                        <i class="lock icon"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button class="ui green button"> Sign in
+                    </button>
+                </div>
+            </form>
+            <br>
+            <br>
+            <div class="ui animated fade negative button" tabindex="0">
+                <div class="visible content">Don't have an account?</div>
+                <div class="hidden content">
+                  Sign up here
+                </div>
+              </div>
         </div>
     </div>
+    <script type="text/javascript" src="./login.js"></script>
 </body>
-</html>
