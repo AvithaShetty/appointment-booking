@@ -1,7 +1,7 @@
 // List of sentences
 var _CONTENT = [
     "Booking appointments",
-    "Medical tests", 
+    "Medical tests",
     "Medicines"
 ];
 var _PART = 0;
@@ -45,3 +45,7 @@ function Delete() {
 
 // Start the typing effect on load
 _INTERVAL_VAL = setInterval(Type, 100);
+
+$('#register').click(function () {
+    $('.ui.modal').modal('show');
+});

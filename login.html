@@ -3,26 +3,27 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
 
 <body>
-    <div id="content_div">
-        <p class="_header">
-            My Hospital
-            <i class="heartbeat icon"></i>
-            <br>
-        
-        <p class = "description">
-            <b>Tired of standing in long queues at KMC?</b><br> 
-            We provide an online alternative for 
+        <div id="content_div">
+            <p class="_header">
+                My Hospital
+                <i class="heartbeat icon"></i>
+                <br>
+
+            <p class="description">
+                <b>Tired of standing in long queues at KMC?</b><br>
+                We provide an online alternative for
             <div id="container">
                 <div id="text"></div>
                 <div id="cursor"></div>
             </div>
-        </p>
-        <p id="slogan"> Making Healthcare Better Together!!</p>
-    </div>
+            </p>
+            <p id="slogan"> Making Healthcare Better Together!!</p>
+        </div>
+
     <div id="sign_div">
         <div class="ui segment center aligned raised" id="container1">
             <h2 class="ui center aligned icon header">
@@ -38,19 +39,64 @@
                         <i class="lock icon"></i>
                         <input type="password" placeholder="Password" required>
                     </div>
-                    <button class="ui green button"> Sign in
+                    <button class="ui positive right labeled icon button">
+                        <i class="checkmark icon"></i>
+                        Sign in
                     </button>
                 </div>
             </form>
             <br>
             <br>
-            <div class="ui animated fade grey button" tabindex="0">
+            <div class="ui animated fade grey button" tabindex="0" id="register">
                 <div class="visible content">Don't have an account?</div>
                 <div class="hidden content">
-                  Sign up here ✔
+                    Sign up here ✔
                 </div>
-              </div>
+            </div>
         </div>
     </div>
+
+
+
+    <!-- Modal Signup sheet -->
+    <div class="ui modal" style="width: 600px;">
+        <div class="ui container center aligned fluid" style="margin-top:30px;">
+            <h1> <b> Create Account </b> </h1>
+            <br>
+            <form action="Null">
+                <div class="ui input vertical buttons" style="align-content: center;">
+                    <div class="ui left icon input ">
+                        <i class="user icon"></i>
+                        <input type="email" placeholder="Enter email" style="width:370px;" required>
+                    </div>
+                    <br>
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" placeholder="Enter Password" required>
+                    </div>
+                    <br>
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" placeholder="Retype password" required>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <br>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                Go back
+            </div>
+            <div class="ui positive right labeled icon button">
+                Register
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
     <script type="text/javascript" src="./login.js"></script>
+
 </body>
