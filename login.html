@@ -3,25 +3,29 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
     <link rel="stylesheet" href="style.css">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
         <div id="content_div">
             <p class="_header">
                 My Hospital
-                <i class="heartbeat icon"></i>
+                <i class="heartbeat icon small"></i>
                 <br>
-
-            <p class="description">
+            </p>
+            <p class="_description">
                 <b>Tired of standing in long queues at KMC?</b><br>
                 We provide an online alternative for
-            <div id="container">
-                <div id="text"></div>
-                <div id="cursor"></div>
-            </div>
+                <span id="container">
+                    <span id="text"></span>
+                    <span id="cursor"></span>
+            </span>
             </p>
-            <p id="slogan"> Making Healthcare Better Together!!</p>
+            <p id="slogan"> 
+                Making Healthcare Better Together!!
+            </p>
         </div>
 
     <div id="sign_div">
@@ -63,7 +67,7 @@
         <div class="ui container center aligned fluid" style="margin-top:30px;">
             <h1> <b> Create Account </b> </h1>
             <br>
-            <form action="Null">
+            <div class="ui form" action="Null">
                 <div class="ui input vertical buttons" style="align-content: center;">
                     <div class="ui left icon input ">
                         <i class="user icon"></i>
@@ -80,7 +84,7 @@
                         <input type="password" placeholder="Retype password" required>
                     </div>
                 </div>
-            </form>
+            </div>
             <br>
             <br>
         </div>

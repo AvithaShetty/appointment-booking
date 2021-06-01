@@ -1,4 +1,4 @@
-// List of sentences
+// Animation Starts
 var _CONTENT = [
     "Booking appointments",
     "Medical tests",
@@ -42,9 +42,10 @@ function Delete() {
         }, 200);
     }
 }
-
-// Start the typing effect on load
 _INTERVAL_VAL = setInterval(Type, 100);
+
+// Animation ends
+
 
 $('#register').click(function () {
     $('.ui.modal').modal('show');
