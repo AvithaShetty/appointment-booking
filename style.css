@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed:300,700');
 body {
   background-image: url("./back.jpg");
   height: 100%;
@@ -10,7 +11,7 @@ body {
   height: 100vh;
   width: 65%;
   box-shadow: inset -13px 0px 10px -7px #888;
-  border-right: 3px solid gray;
+  border-right: 3px solid #6abfa5;
 }
 
 #sign_div {
@@ -24,17 +25,23 @@ body {
 }
 
 #container1 {
-  width: 300px; /* Can be in percentage also. */
-  box-shadow: -1px 1px #888,
-  -2px 2px #888,
-  -3px 3px #888,
-  -4px 4px #888,
-  -5px 5px #888;
+  width: 400px; 
+  padding-top: 40px;
+  padding-bottom: 40px;
+  vertical-align: middle;
+  background-color: rgb(245, 241, 241);
+  border-width: 0px;
+  border-radius: 10px;
+  box-shadow: -10px -10px 15px rgba(255,255,255,1),
+              15px 15px 15px rgba(0,0,0,0.1),
+              inset -5px -5px 15px rgba(255,255,255,1),
+              inset 5px 5px 5px rgba(0,0,0,0.1);
 }
 
 ._spaced {
   margin-bottom: 10px;
   width: 250px;
+  /* box-shadow: 0.5px 0.5px 6px #888; */
 }
 
 #container1 button {
@@ -60,8 +67,10 @@ body {
   text-align: center;
   color: black;
   line-height: 40px;
-  font-size: x-large;
+  font-size: 2.5em;
   word-spacing: 1px;
+  
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
   
 }
 
@@ -75,7 +84,7 @@ body {
   font-weight: bold;
   /* padding-top: 40px;  */
   line-height: 40px;
-  font-size: x-large;
+  font-size: 1.2em;
   word-spacing: 1px;
 }
 
@@ -99,13 +108,14 @@ body {
 }
 
 #slogan {
+  font-family: "Pacifico", cursive;
+  /* text-shadow: -5px 5px 0 gold; */
   color: #343641;
+  
   text-align: center;
   position: absolute;
   bottom: 0px;
-  left: 5%;
+  left: 12%;
   margin-bottom: 100px;
-  font-family: "Pacifico", cursive;
   font-size: 52px;
-  text-shadow: -5px 5px 0 gold;
 }
