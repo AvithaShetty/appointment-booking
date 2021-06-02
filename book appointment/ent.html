@@ -1,121 +1,59 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
-    </head>
-<body style="margin-left: 20px; margin-top: 20px;">
-        
-        <div class="ui center aligned container">
-            <div class="ui teal horizontal raised label" style="font-size: medium; height: 70px; padding-top: 20px;">Check Availability :
-                <input type="date"> 
-                <input type="time" placeholder="time">
-            </div>
-        </div>
-         <br> <br> <br> <br>
-       
-    <div class="ui raised cards" >
-        <div class="ui card" style="margin-left: 200px;">
-            <div class="content">
-              <!-- <i class="right floated user md icon"> -->
-              <div class="header" style="font-size: x-large;">Dr.Arun T V</div>
-            </div>
-            <div class="content">
-              <h2 class="ui sub header" style="font-size: small;">Designation:</h2> 
-              Consultant - ENT <br> 
-              <h2 class="ui sub header" style="font-size: small;">Qualification:</h2> 
-              MBBS | MS 
-            </div> 
-            <div class="extra content">
-              <button class="ui button">Book Appointment</button>
-            </div>
-        </div>
 
-        <div class="ui card" style="margin-left: 10px;">
-            <div class="content">
-              <div class="header" style="font-size: x-large;">Dr.Jayanthi</div>
-            </div>
-            <div class="content">
-              <h2 class="ui sub header" style="font-size: small;">Designation:</h2> 
-              Consultant - ENT <br> 
-              <h2 class="ui sub header" style="font-size: small;">Qualification:</h2> 
-              MBBS | DLO | DNB(ENT) 
-            </div>
-            <div class="extra content">
-              <button class="ui button">Book Appointment</button>
-            </div>
-        </div>
-        
-        &nbsp;
-        <div class="ui card">
-            <div class="content">
-              <div class="header" style="font-size: x-large;">Dr.Rohit M </div>
-            </div>
-            <div class="content">
-              <h2 class="ui sub header" style="font-size: small;">Designation:</h2> 
-              Consultant - ENT <br> 
-              <h2 class="ui sub header" style="font-size: small;">Qualification:</h2> 
-              MBBS | MS(ENT)
-            </div>
-            <div class="extra content">
-              <button class="ui button">Book Appointment</button>
-            </div>
-        </div>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+</head>
+
+<body>
+
+  <div class="ui center aligned container" style="margin: 2rem;">
+    <div class="ui teal horizontal raised label" style="font-size: medium; height: 70px; padding-top: 20px;">
+      Check Availability :
+      <input type="date">
+      <input type="time" placeholder="time">
     </div>
+  </div>
 
-    <div class="ui raised cards" >
-        <div class="ui card" style="margin-left: 200px;">
-            <div class="content">
-              <div class="header" style="font-size: x-large;">Dr.Mukundan</div>
-            </div>
-            <div class="content">
-              <h2 class="ui sub header" style="font-size: small;">Designation:</h2> 
-              Consultant - ENT <br> 
-              <h2 class="ui sub header" style="font-size: small;">Qualification:</h2> 
-              MBBS | MS 
-            </div> 
-            <div class="extra content">
-              <button class="ui button">Book Appointment</button>
-            </div>
-        </div>
+  <div class="ui center aligned container three column grid" id="target">
+  </div>
 
-        <div class="ui card" style="margin-left: 10px;">
-            <div class="content">
-              <div class="header" style="font-size: x-large;">Dr.Anand</div>
-            </div>
-            <div class="content">
-              <h2 class="ui sub header" style="font-size: small;">Designation:</h2> 
-              Consultant - ENT <br> 
-              <h2 class="ui sub header" style="font-size: small;">Qualification:</h2> 
-              MBBS | MS(ENT) 
-            </div>
-            <div class="extra content">
-              <button class="ui button">Book Appointment</button>
-            </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+  <script type="text/html" id="_cardTemplate">
+    <div class="column">
+      <div class="ui card" style="margin:1.5rem;">
+        <div class="content">
+          <div class="header" style="font-size: x-large;">{{NAME}}</div>
         </div>
-        
-        &nbsp;
-        <div class="ui card">
-            <div class="content">
-              <div class="header" style="font-size: x-large;">Dr.Aashalatha</div>
-            </div>
-            <div class="content">
-              <h2 class="ui sub header" style="font-size: small;">Designation:</h2> 
-              Consultant - ENT <br> 
-              <h2 class="ui sub header" style="font-size: small;">Qualification:</h2> 
-              MBBS | MS(ENT)
-            </div>
-            <div class="extra content">
-              <button class="ui button">Book Appointment</button>
-            </div>
+        <div class="content">
+          <h2 class="ui sub header" style="font-size: small;">
+            Designation:
+          </h2>
+          Consultant - {{DEPARTMENT}} <br>
+          <h2 class="ui sub header" style="font-size: small;">Qualification:</h2>
+          {{QUALIFICATION}}
         </div>
+        <div class="extra content">
+          <button class="ui button">Book Appointment</button>
+        </div>
+      </div>
     </div>
-
+   
+  </script>
+  <script>
+    function display(elem){
+      template_html = $("#_cardTemplate").html()
+      data = Mustache.to_html(template_html, elem)
+      $("#target").append(data);
+    }
+    function f(data) {
+      data.results.forEach(display);
+    }
+    $.get('http://192.168.0.192:5000/get_dept/OBG', f);
+  </script>
 </body>
+
 </html>
-
-
-
-
-
-<!-- <div class="ui raised card" style="border-style: solid; border-color: gray; border-width: 1px; width: 350px;
-         padding: 20px; border-radius: 10px;"> -->

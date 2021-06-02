@@ -11,82 +11,112 @@
   <div class="ui teal inverted segment center aligned container" style="width: 400px;">
     <h1 class="ui inverted header" style="text-align: center;">Choose the type of Test </h1>
   </div>
-     <div class="ui three column grid center aligned container" style="margin : 30px;" >
-                <div class="column">
-                  <div class="ui button raised segment fluid" style="font-size: large;">ECG - Adult</div>
-                </div>
-                <div class="column">
-                  <div class="ui button raised segment fluid" style="font-size: large;">Echo - Cardiogram</div>
-                </div>
-                <div class="column">
-                  <div class="ui button raised segment fluid" style="font-size: large;">Esr (Automated)</div>
-                </div>
-
-          <div class="row">
-                <div class="column">
-                  <div class="ui button raised segment fluid" style="font-size: large;"> Glucose - Fasting </div>
-                </div>
-                <div class="column">
-                  <div class="ui button raised segment fluid" style="font-size: large;">Glucose - Post Prandial (Ppbs)</div>
-                </div>
-                <div class="column">
-                  <div class="ui button raised segment fluid" style="font-size: large;">Glycated Haemoglobin (Hba1C)</div>
-                </div>
-          </div>
-
-          <div class="row">
-                <div class="column">
-                  <div class="ui button raised segment fluid" style="font-size: large;">Hc Cardiology Consultation</div>
-                </div>
-                <div class="column">
-                  <div class="ui button raised segment fluid" style="font-size: large;">Hc Diet Consultation</div>
-                </div>
-                <div class="column">
-                  <div class="ui button raised segment fluid" style="font-size: large;">Hc Physician Consultation</div>
-                </div>
-          </div>
-
-          <div class="row">
-            <div class="column">
-              <div class="ui button raised segment fluid" style="font-size: large;">Kidney Profile</div>
-            </div>
-            <div class="column">
-              <div class="ui button raised segment fluid" style="font-size: large;">Lipid Profile</div>
-            </div>
-            <div class="column">
-              <div class="ui button raised segment fluid" style="font-size: large;">Liver Function Test</div>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="column">
-              <div class="ui button raised segment fluid" style="font-size: large;">Thyroid Profile (T3 T4 Tsh)</div>
-            </div>
-            <div class="column">
-              <div class="ui button raised segment fluid" style="font-size: large;">Total Vitamin D</div>
-            </div>
-            <div class="column">
-              <div class="ui button raised segment fluid" style="font-size: large;">Thread Mill Test</div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="column">
-              <div class="ui button raised segment fluid" style="font-size: large;">Vitamin B12</div>
-            </div>
-            <div class="column">
-              <div class="ui button raised segment fluid" style="font-size: large;">Xray Chest Pa (Cxr)</div>
-            </div>
-            <div class="column">
-              <div class="ui button raised segment fluid" style="font-size: large;">Renal Profile</div>
-            </div>
-          </div>
-          <div class="row"></div>
+     <div class="ui three column grid center aligned container" style="margin : 30px;" id="target1" >
+         
     </div>
-        
   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+  <script type="text/html" id="_temp">
+    <div class="column">
+      <div class="ui button raised segment fluid" style="font-size: large;">{{NAME}}</div>
+    </div>
+  </script>
 
+  <script>
+    var template = "#_temp";
+    var target = "#target1";
+    var url ="http://192.168.0.192:5000/get_test";
+
+    function display(elem){
+      template_html = $(template).html()
+      data = Mustache.to_html(template_html, elem)
+      $(target).append(data);
+    }
+
+    function f(data) {
+      data.results.forEach(display);
+    }
+    
+    $.get(url, f);
+  </script>
 </body>
 </html>
     </body>
 </html>
+
+
+
+<!-- <div class="row">
+  <div class="column">
+    <div class="ui button raised segment fluid" style="font-size: large;">ECG - Adult</div>
+  </div>
+  <div class="column">
+    <div class="ui button raised segment fluid" style="font-size: large;">Echo - Cardiogram</div>
+  </div>
+  <div class="column">
+    <div class="ui button raised segment fluid" style="font-size: large;">Esr (Automated)</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div class="ui button raised segment fluid" style="font-size: large;"> Glucose - Fasting </div>
+  </div>
+  <div class="column">
+    <div class="ui button raised segment fluid" style="font-size: large;">Glucose - Post Prandial (Ppbs)</div>
+  </div>
+  <div class="column">
+    <div class="ui button raised segment fluid" style="font-size: large;">Glycated Haemoglobin (Hba1C)</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div class="ui button raised segment fluid" style="font-size: large;">Hc Cardiology Consultation</div>
+  </div>
+  <div class="column">
+    <div class="ui button raised segment fluid" style="font-size: large;">Hc Diet Consultation</div>
+  </div>
+  <div class="column">
+    <div class="ui button raised segment fluid" style="font-size: large;">Hc Physician Consultation</div>
+  </div>
+</div>
+
+<div class="row">
+<div class="column">
+<div class="ui button raised segment fluid" style="font-size: large;">Kidney Profile</div>
+</div>
+<div class="column">
+<div class="ui button raised segment fluid" style="font-size: large;">Lipid Profile</div>
+</div>
+<div class="column">
+<div class="ui button raised segment fluid" style="font-size: large;">Liver Function Test</div>
+</div>
+</div>
+
+<div class="row">
+<div class="column">
+<div class="ui button raised segment fluid" style="font-size: large;">Thyroid Profile (T3 T4 Tsh)</div>
+</div>
+<div class="column">
+<div class="ui button raised segment fluid" style="font-size: large;">Total Vitamin D</div>
+</div>
+<div class="column">
+<div class="ui button raised segment fluid" style="font-size: large;">Thread Mill Test</div>
+</div>
+</div>
+
+<div class="row">
+<div class="column">
+<div class="ui button raised segment fluid" style="font-size: large;">Vitamin B12</div>
+</div>
+<div class="column">
+<div class="ui button raised segment fluid" style="font-size: large;">Xray Chest Pa (Cxr)</div>
+</div>
+<div class="column">
+<div class="ui button raised segment fluid" style="font-size: large;">Renal Profile</div>
+</div>
+</div>
+<div class="row"></div> -->

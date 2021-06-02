@@ -1,0 +1,27 @@
+body {
+    background-image: url("./back.jpg");
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+/* #content_div {
+    float: left;
+    height: 100vh;
+    width: 65%;
+    box-shadow: inset -13px 0px 10px -7px #888;
+    border-right: 3px solid #6abfa5;
+} */
+
+._header {
+    font-size: 70px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    /* padding-left: 500px; */
+    text-align: center;
+    padding-top: 20px;
+    color: #343641;
+    text-shadow: -5px 5px 0 #6abfa5;
+    font-family: 'Roboto Slab', serif;
+}
