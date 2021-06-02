@@ -50,3 +50,33 @@ _INTERVAL_VAL = setInterval(Type, 100);
 $('#register').click(function () {
     $('.ui.modal').modal('show');
 });
+
+
+$(document).ready(function () {
+    $('.ui.form').form({
+        fields: {
+            registerEmail: {
+                identifier: 'registerEmail',
+                rules: [{
+                    type: 'email',
+                    prompt: 'Please enter a valid email address.'
+                }]
+            },
+            registerPassword: {
+                identifier: 'registerPassword',
+                rules: [
+                {
+                    type: 'minLength[6]',
+                    prompt: "Password should be minimum 6 digits"
+                }]
+            },
+            registerPasswordVerify: {
+                identifier: 'registerPasswordVerify',
+                rules: [{
+                    type: 'match[registerPassword]',
+                    prompt: 'Your passwords do not match.'
+                }]
+            }
+        },
+    });
+});

@@ -3,6 +3,23 @@
   <head>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
   </head>
+  <script>
+    function myFunction() {
+  var x = document.getElementById("sb2");
+  if (x.style.display === "none") {
+    x.style.display = "inline";
+
+    document.getElementById("sb1").innerText = "Submitted ✔";
+    document.getElementById("sb1").disabled = true;
+  } else {
+    x.style.display = "none";
+  }
+}
+
+  function myFunct() {
+    location.href = "select_department.html";
+}
+</script>
 <body>
   <div class="ui container raised segment" style="margin-top: 5%;">
 
@@ -93,8 +110,9 @@
           </div>
         </div>
 
-          <button class="ui button" type="submit">Submit</button>
       </form>
+      <button class="ui button" onclick="myFunction()" id="sb1">Submit</button>
+      <button class="ui button"  id="sb2" style="display: none;" onclick= "myFunct()" >Proceed to Appointment</button>
   </div>
 
 </body>    

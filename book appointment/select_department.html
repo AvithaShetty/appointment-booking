@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+    </head>
+
+    <style>
+      body {
+        background-image: url("./back.jpg");
+        height: 100%;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    </style>
+<body style="margin:20px">
+
+      <div class="ui teal inverted segment center aligned container" style="width: 700px; height: 80px; padding-top: 25px;">
+        <h1 class="ui inverted header" style="text-align: center;">Choose Department</h1>
+      </div>
+
+        <div class="ui two column right aligned grid center aligned container" style="margin : 30px;" >
+            <div class="row">
+
+                  <div class="column">
+                    <div class="ui button raised segment" style="font-size:large; width: 200px; height: 55px; margin-right: 100px;" id="ent">ENT</div>
+                  </div>
+
+                  <div class="column">
+                    <div class="ui button raised segment" style="font-size:large; width: 200px; height: 55px; margin-right: 250px;">Dental</div>
+                  </div>
+            </div>
+
+            <div class="row"></div>
+
+            <div class="row">
+
+                    <div class="column">
+                      <div class="ui button raised segment" style="font-size:large; width: 200px; height: 55px; margin-right: 100px;">Dermatology</div>
+                    </div>
+
+                    <div class="column">
+                      <div class="ui button raised segment" style="font-size:large; width: 200px; height: 55px; margin-right: 250px;">OBG</div>
+                    </div>
+            </div>
+
+            <div class="row"></div>
+
+            <div class="row">
+
+                    <div class="column">
+                      <div class="ui button raised raised segment" style="font-size:large; width: 200px; height: 55px; margin-right: 100px;">Neurology</div>
+                    </div>
+
+                    <div class="column">
+                      <div class="ui button raised raised segment" style="font-size:large; width: 200px; height: 55px; margin-right: 250px;">Nephrology</div>
+                    </div>
+            </div>
+
+            <div class="row"></div>
+
+            <div class="row">
+
+                  <div class="column">
+                    <div class="ui button raised raised segment" style="font-size:large; width: 200px; height: 55px; margin-right: 100px;">Ophthalmology</div>
+                  </div>
+
+                  <div class="column">
+                    <div class="ui button raised raised segment" style="font-size:large; width: 200px; height: 55px; margin-right: 250px;">Paediatrics</div>
+                  </div>
+            </div>
+            
+            <div class="row"></div>
+
+            <div class="row">
+
+              <div class="column">
+                <div class="ui button raised raised segment" style="font-size:large; width: 200px; height: 55px; margin-right: 100px;">Orthopaedics</div>
+              </div>
+              <div class="column"></div>
+            </div>
+        </div>
+
+        
+        <label style="margin-top: 100px;">Check Availability</label>
+        <input type="date"> &nbsp;
+        <input type="time" placeholder="time">
+        <br><br>
+
+
+    
+
+
+ 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script>
+    $('.coupled.modal').modal({
+            allowMultiple: true
+        });
+
+        $('.second.modal').modal('attach events', '#ent.first.modal .ent');
+
+        $('.first.modal').modal({
+            transition: 'fade up'
+        }).modal('show');
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="content_div">
+        <p class="_header">
+            My Hospital
+            <i class="heartbeat icon small"></i>
+            <br>
+        </p>
+        <p class="_description">
+            <b>Tired of standing in long queues at KMC?</b><br>
+            We provide an online alternative for
+            <span id="container">
+                <span id="text"></span>
+                <span id="cursor"></span>
+            </span>
+        </p>
+        <p id="slogan">
+            Making Healthcare Better Together!!
+        </p>
+    </div>
+
+    <div id="sign_div">
+        <div class="ui segment center aligned" id="container1">
+            <h1 class="ui center aligned icon header">
+                Sign in
+            </h1>
+            <form action="./home.html">
+                <div class="ui input vertical buttons">
+                    <div class="ui left icon input _spaced">
+                        <i class="user icon"></i>
+                        <input type="email" placeholder="Email/Username" required>
+                    </div>
+                    <div class="ui left icon input _spaced">
+                        <i class="lock icon"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button class="ui positive button" id="signin">
+                        Sign in
+                    </button>
+                </div>
+            </form>
+            <br>
+            <br>
+            <div class="ui animated fade grey button" tabindex="0" id="register">
+                <div class="visible content">Don't have an account?</div>
+                <div class="hidden content">
+                    Sign up here ✔
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal Signup sheet -->
+    <div class="ui tiny modal" style="padding:30px;">
+
+        <i class="close icon"></i>
+
+        <div class="header">Sign up here</div>
+        <div class="content">
+            <form class="ui form error">
+                <div class="field">
+                    <input type="email" placeholder="Email" id="registerEmail">
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Password" id="registerPassword">
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Retype Password" id="registerPasswordVerify">
+                </div>
+
+                <div class="ui error message"></div>
+                <div class="ui submit positive right labeled icon button right floated">
+                    Submit
+                    <i class="checkmark icon"></i>
+                </div>
+                <div class="actions">
+                    <div class="ui black deny button right floated">
+                        Back
+                    </div>
+                </div>
+        </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script type="text/javascript" src="./login.js"></script>
+
+</body>
