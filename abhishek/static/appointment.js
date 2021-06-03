@@ -2,8 +2,8 @@ var department, doctor, date, time;
 
 function getContent(URL, target, template, callback, index){
     function display(elem) {
-        var selectedItemforID = elem[Object.keys(elem)[index]].replace(" ","_").replace('.','_')
-        elem.id_name = selectedItemforID;
+        var selectedItemforID = elem[Object.keys(elem)[index]]
+        elem.id_name = selectedItemforID.replaceAll(" ","_").replaceAll('.','_');
         
         template_html = $(template).html()
         data = Mustache.to_html(template_html, elem)
