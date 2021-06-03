@@ -1,4 +1,4 @@
-$("#appointment_button").click( () => {openNewTab("../book appointment/appointment_form.html")});
+$("#appointment_button").click( () => {openNewTab("../book appointment/select_department.html")});
 $("#test_button").click( () => {openNewTab("../test_3.html")});
 $("#medicine_button").click( () => {openNewTab("../order_medicine.html")});
 

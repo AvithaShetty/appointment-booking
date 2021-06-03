@@ -80,3 +80,10 @@ $(document).ready(function () {
         },
     });
 });
+
+$("#signin_button").click( () => {openNewTab("../book appointment/appointment_form.html")});
+$("#register_button").click( () => {openNewTab("../book appointment/appointment_form.html")});
+
+openNewTab = ( location ) => {
+    window.open(location ,"_blank");
+};
