@@ -62,15 +62,84 @@ def test():
 def success(name):
    return 'welcome %s' % name
 
-@app.route("/register", methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-      user = request.form['ID']
-    else:
-      user = request.args.get('ID')
-    print(user)
-    return render_template('home.html')
 
+
+@app.route('/validate', methods=["POST"])
+def validateLogin():
+    username = str(request.form['username'])
+    password = str(request.form['password'])
+    print(username, password)
+    cnxn = pyodbc.connect(connectionString)
+    cursor = cnxn.cursor()
+    sql = """
+        DECLARE	@responseMessage nvarchar(250)
+        DECLARE @responseCode INT
+
+        EXEC dbo.Login
+            @pLoginName = ?,
+            @pPassword = ?,
+            @responseMessage = @responseMessage OUTPUT,
+            @responseCode = @responseCode OUTPUT
+
+        SELECT	@responseMessage as N'message', @responseCode as N'code';"""
+    cursor.execute(sql, (username, password))
+    columns = [column[0] for column in cursor.description]
+    rows = cursor.fetchall()
+    count = len(rows)
+    results = []
+    for row in rows:
+        results.append( dict(zip(columns, row)) )
+
+    # don't modify this
+    cursor.commit()
+    cnxn.close()
+    response = jsonify({"results":results})
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    print(results[0]["code"], type(results[0]["code"]))
+    if results[0]["code"] == 1:
+        return render_template('home.html')
+    else:
+        return response
+    
+@app.route('/register', methods=["POST"])
+def register():
+    username = str(request.form['ID'])
+    password = str(request.form['pass'])
+    firstName = str(request.form['first-name'])
+    LastName = str(request.form['last-name'])
+    print(username, password)
+    cnxn = pyodbc.connect(connectionString)
+    cursor = cnxn.cursor()
+    sql = """
+        DECLARE @responseMessage NVARCHAR(250)
+        DECLARE @responseCode INT
+        EXEC dbo.AddUser
+          @pLogin = ?,
+          @pPassword = ?,
+          @pFirstName = ?,
+          @pLastName = ?,
+          @responseMessage=@responseMessage OUTPUT,
+          @responseCode = @responseCode OUTPUT
+
+        SELECT	@responseMessage as N'message', @responseCode as N'code';"""
+    cursor.execute(sql, (username, password, firstName, LastName ))
+    columns = [column[0] for column in cursor.description]
+    rows = cursor.fetchall()
+    count = len(rows)
+    results = []
+    for row in rows:
+        results.append( dict(zip(columns, row)) )
+
+    # don't modify this
+    cursor.commit()
+    cnxn.close()
+    response = jsonify({"results":results})
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    print(results[0]["code"], type(results[0]["code"]))
+    if results[0]["code"] == 1:
+        return render_template('home.html')
+    else:
+        return response
 
 
 # don't modify below here

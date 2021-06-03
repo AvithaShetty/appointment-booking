@@ -33,15 +33,15 @@
             <h1 class="ui center aligned icon header">
                 Sign in
             </h1>
-            <form action="./home.html">
+            <form action="http://192.168.0.10:5000/validate" method="POST">
                 <div class="ui input vertical buttons">
                     <div class="ui left icon input _spaced">
                         <i class="user icon"></i>
-                        <input type="email" placeholder="Email/Username" required>
+                        <input type="email" placeholder="Email" required name="username">
                     </div>
                     <div class="ui left icon input _spaced">
                         <i class="lock icon"></i>
-                        <input type="password" placeholder="Password" required>
+                        <input type="password" placeholder="Password" required name="password">
                     </div>
                     <button class="ui positive button" id="signin" id="signin_button">
                         Sign in
@@ -68,7 +68,15 @@
 
         <div class="header">Sign up here</div>
         <div class="content">
-            <form class="ui form error" action="http://192.168.0.192:5000/register" method="post">
+            <form class="ui form" action="http://192.168.0.10:5000/register" method="post">
+                <div class="two fields">
+                    <div class="field">
+                      <input type="text" name="first-name" placeholder="First Name">
+                    </div>
+                    <div class="field">
+                      <input type="text" name="last-name" placeholder="Last Name">
+                    </div>
+                  </div>
                 <div class="field">
                     <input type="email" placeholder="Email" id="registerEmail" name="ID">
                 </div>
