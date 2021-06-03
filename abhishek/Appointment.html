@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="./static/appointment.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+  <title> Book Appointment </title>
+</head>
+
+<body>
+  <div class="ui ordered steps fluid">
+    <div class="active step" id="department_step">
+      <div class="content">
+        <div class="title">Department</div>
+        <div class="description">Choose your department</div>
+      </div>
+    </div>
+    <div class="disabled step" id="doctor_step">
+      <div class="content">
+        <div class="title">Doctor</div>
+        <div class="description">Select the doctor</div>
+      </div>
+    </div>
+    <div class="disabled step" id="slot_step">
+      <div class="content">
+        <div class="title">Slot</div>
+        <div class="description">Select an appropriate slot</div>
+      </div>
+    </div>
+    <div class="disabled step">
+      <div class="content">
+        <div class="title">Confirmation</div>
+      </div>
+    </div>
+    <div class="disabled step">
+      <div class="content">
+        <div class="title">Payment</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="department_container">
+    <div class="ui teal inverted segment center aligned container"
+      style="width: 100%; height: 80px; padding-top: 25px;">
+      <h1 class="ui inverted header" style="text-align: center;">Choose Department</h1>
+    </div>
+    <div class="ui three column grid center aligned" style="margin : 30px;" id="department_target">
+    </div>
+  </div>
+
+  <div id="doctor_container">
+    <div class="ui teal inverted segment center aligned container"
+      style="width: 100%; height: 80px; padding-top: 25px;">
+      <h1 class="ui inverted header" style="text-align: center;">Choose Doctor</h1>
+    </div>
+    <div class="ui three column center aligned grid" style="padding:3rem" id="doctor_target">
+    </div>
+  </div>
+  <script type="text/html" id="department_template">
+      <div class="column">
+        <div class="ui button raised segment" style="font-size:large; height: 55px;" id="{{id_name}}">{{dept}}</div>
+      </div>
+    </script>
+
+  <script type="text/html" id="doctor_template">
+      <div class="column">
+        <div class="ui card raised segment">
+          <div class="content">
+            <div class="header" style="font-size: x-large;">{{NAME}}</div>
+          </div>
+          <div class="content">
+            <h2 class="ui sub header" style="font-size: small;">
+              Designation:
+            </h2>
+            Consultant - {{DEPARTMENT}} <br>
+            <h2 class="ui sub header" style="font-size: small;">
+              Qualification:
+            </h2>
+            {{QUALIFICATION}}
+          </div>
+          <div class="extra content">
+            <button class="ui button" id="{{id_name}}">Book Appointment</button>
+          </div>
+        </div>
+      </div>
+    </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+  <script src="./static/appointment.js"></script>
+</body>
+
+</html>

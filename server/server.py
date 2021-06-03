@@ -19,7 +19,7 @@ connectionString = f"""DRIVER={{SQL Server}};
 app = Flask(__name__)
 # don't modify above here
 
-@app.route("/get_dept/<dept>", methods=['GET'])
+@app.route("/get_doctors/<dept>", methods=['GET'])
 def send(dept):
     cnxn = pyodbc.connect(connectionString)
     cursor = cnxn.cursor()
@@ -62,6 +62,24 @@ def test():
 def success(name):
    return 'welcome %s' % name
 
+@app.route('/get_departments' , methods=['GET']) 
+def dept():
+    cnxn = pyodbc.connect(connectionString)
+    cursor = cnxn.cursor()
+    cursor.execute("SELECT DEPARTMENT as dept FROM DOCTOR GROUP BY DEPARTMENT ")
+    columns = [column[0] for column in cursor.description]
+    rows = cursor.fetchall()
+    count = len(rows)
+    results = []
+    for row in rows:
+        results.append( dict(zip(columns, row)) )
+
+    # don't modify this
+    cursor.commit()
+    cnxn.close()
+    response = jsonify({"number":count,"results":results})
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 @app.route('/validate', methods=["POST"])

@@ -81,16 +81,8 @@
             </div>
         </div>
 
-        <div class="ui tiny modal">
-          <!DOCTYPE html>
-          <html>
-          
-          <head>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
-          </head>
-          
-          <body>
-          
+        <div class="ui large modal">
+
             <div class="ui center aligned container" style="margin: 2rem;">
               <div class="ui teal horizontal raised label" style="font-size: medium; height: 70px; padding-top: 20px;">
                 Check Availability :
@@ -98,8 +90,10 @@
                 <input type="time" placeholder="time">
               </div>
             </div>
-          
-            <div class="ui center aligned container three column grid" id="target">
+            <div clas ="scrolling content">
+
+              <div class="ui center aligned container three column grid" id="target">
+              </div>
             </div>
           
           
@@ -136,7 +130,7 @@
               function f(data) {
                 data.results.forEach(display);
               }
-              $.get('http://192.168.0.7:5000/get_dept/ENT', f);
+              $.get('http://192.168.0.10:5000/get_dept/ENT', f);
             </script>
           </body>
           
@@ -149,7 +143,7 @@
  
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-  <script>
+  <script src>
     $('#ent').click(function () {
     $('.ui.modal').modal('show');
 });
