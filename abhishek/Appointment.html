@@ -9,30 +9,30 @@
 
 <body>
   <div class="ui ordered steps fluid">
-    <div class="active step" id="department_step">
+    <div class="link active step" id="department_step" onclick="changePage(0)">
       <div class="content">
         <div class="title">Department</div>
         <div class="description">Choose your department</div>
       </div>
     </div>
-    <div class="disabled step" id="doctor_step">
+    <div class=" link disabled step" id="doctor_step" onclick="changePage(1)">
       <div class="content">
         <div class="title">Doctor</div>
         <div class="description">Select the doctor</div>
       </div>
     </div>
-    <div class="disabled step" id="slot_step">
+    <div class="link disabled step" id="slot_step">
       <div class="content">
         <div class="title">Slot</div>
         <div class="description">Select an appropriate slot</div>
       </div>
     </div>
-    <div class="disabled step">
+    <div class="link disabled step" id="confirmation_step">
       <div class="content">
         <div class="title">Confirmation</div>
       </div>
     </div>
-    <div class="disabled step">
+    <div class="link disabled step" id="payment_step">
       <div class="content">
         <div class="title">Payment</div>
       </div>
@@ -61,6 +61,16 @@
         <div class="ui button raised segment" style="font-size:large; height: 55px;" id="{{id_name}}">{{dept}}</div>
       </div>
     </script>
+
+  <div id="slot_container">
+    <!-- TODO : ADD SLOT CONTENT HERE -->
+  </div>
+  <div id="confirmation_container">
+    <!-- TODO : ADD CONFIRMATION CONTENT HERE -->
+  </div>
+  <div id="payment_container">
+    <!-- TODO : ADD PAYMENT CONTENT HERE -->
+  </div>
 
   <script type="text/html" id="doctor_template">
       <div class="column">
