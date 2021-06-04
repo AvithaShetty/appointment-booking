@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <div class="ui ordered steps fluid">
+  <div class="ui sticky ordered steps fluid">
     <div class="link active step" id="department_step" onclick="changePage(0)">
       <div class="content">
         <div class="title">Department</div>
@@ -29,12 +29,12 @@
     </div>
     <div class="link disabled step" id="confirmation_step" onclick="changePage(3)">
       <div class="content">
-        <div class="title">Confirmation</div>
+        <div class="title">Confirmation and Payment</div>
       </div>
     </div>
     <div class="link disabled step" id="payment_step" onclick="changePage(4)">
       <div class="content">
-        <div class="title">Payment</div>
+        <div class="title">Appointment Confirmed</div>
       </div>
     </div>
   </div>
@@ -45,6 +45,9 @@
       <h1 class="ui inverted header" style="text-align: center;">Choose Department</h1>
     </div>
     <div class="ui three column grid center aligned" style="margin : 30px;" id="department_target">
+      <button class="ui toggle white button" id="tog" onclick="setColor('tog', '#101010')">
+        Vote
+      </button>
     </div>
   </div>
 
@@ -64,6 +67,17 @@
 
   <div id="slot_container">
     <!-- TODO : ADD SLOT CONTENT HERE -->
+    <div class="ui red three item menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Messages
+      </a>
+      <a class="item">
+        Friends
+      </a>
+    </div>
   </div>
   <div id="confirmation_container">
     <!-- TODO : ADD CONFIRMATION CONTENT HERE -->
@@ -95,6 +109,7 @@
       </div>
     </script>
 
+    
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>

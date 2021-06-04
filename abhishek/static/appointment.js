@@ -25,7 +25,7 @@ function getContent(URL, target, template, callback, index){
 }
 
 function getAddr(endpoint){
-    IP = "192.168.0.192"
+    IP = "192.168.0.171"
     PORT = "5000" 
     ADDR = "http://" + IP+ ":" +PORT + endpoint
     return ADDR
@@ -83,4 +83,4 @@ function getSlot(doct_name){
 }
 
 getContent(getAddr("/get_departments"), "#department_target", "#department_template", getDoctors, 0);
-
+$(".ui.sticky").sticky()
