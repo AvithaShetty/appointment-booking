@@ -149,7 +149,6 @@ function main() {
     $('#register').click(function () {
         $('.ui.modal').modal('show');
     });
-    showNotif("purple")
     // Form validation for the signup page
     $(document).ready(function () {
         $('.ui.form').form({

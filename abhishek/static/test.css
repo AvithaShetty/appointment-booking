@@ -4,6 +4,34 @@
 #confirmation_container {
   display: none;
 }
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.leftside {
+  left: 0;
+  border-right: 1px solid gray;
+  /* background-color: #111; */
+}
+
+._spaced {
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* Control the right side */
+.rightside {
+  right: 0;
+  /* background-color: red; */
+}
 body {
   background-image: url("../../Main Pages/back.jpg");
   height: 100%;
@@ -15,14 +43,12 @@ body {
   margin: 2rem;
 }
 
-i {
+._icons {
   position: absolute;
   bottom: 0.35em;
 }
 
-#nextpageButton {
-  padding: 2em;
-}
+
 #notification {
   position: fixed;
   top: 0px;
@@ -56,7 +82,7 @@ i {
 
 #_cardContainer,
 #_cardContainer2 {
-position: absolute;
+  position: absolute;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -64,5 +90,5 @@ position: absolute;
 }
 
 #_cardContainer {
-    width:50%
+  width: 50%;
 }

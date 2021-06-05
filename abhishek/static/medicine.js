@@ -1,5 +1,5 @@
-var department, doctor, date, time;
-var pages = ["department", "doctor", "slot", "confirmation", "payment"]
+var  date, time, tests=[], fullName, addr, contact;
+var pages = ["test", "slot", "confirmation", "payment"]
 var timeTable = ["07:00 AM", "12:00 PM", "04:00 PM",
     "08:00 AM", "12:30 PM", "04:30 PM",
     "09:00 AM", "01:20 PM", "05:00 PM",
@@ -20,13 +20,13 @@ function fillTarget(target, template, elem) {
 function getContent(URL, target, template, callback, index) {
     function display(elem) {
         var selectedItemforID = elem[Object.keys(elem)[index]]
-        elem.id_name = selectedItemforID.replaceAll(" ", "_").replaceAll('.', '_');
+        elem.id_name = selectedItemforID.replaceAll(":", "_").replaceAll('.', '_').replaceAll("(","_").replaceAll(")","_").replaceAll("-","_").replaceAll(" ","_");
 
         fillTarget(target, template, elem)
 
-        $("#" + elem.id_name).click(() => {
+        $("#" + elem.id_name).click((e) => {
             console.log(selectedItemforID);
-            callback(selectedItemforID);
+            callback(e);
         });
     }
 
@@ -81,7 +81,7 @@ function changePage(nextIndex) {
 
 
 // onClick functions
-function getDoctors(dept_name) {
+function getTest(dept_name) {
     department = dept_name;
     if (!populatedDoctors) {
         getContent(getAddr("/get_doctors/" + dept_name), "#doctor_target", "#doctor_template", getSlot, 2)
@@ -109,47 +109,41 @@ function populateTime(elem, index) {
     });
 }
 
-function getSlot(doct_name) {
-    selectedTime = -1;
-    doctor = doct_name;
-    changePage(2);
-    if (!populatedTime) {
-        timeTable.forEach((elem, index) => populateTime(elem, index));
-        populateTime = true;
-    }
+function getSlot() {
+    if(tests.length == 0)
+        showNotif("red", "Please select atleast one medication")
+    else
+        changePage(1);
 }
 function getConfirmation(){
-    changePage(4);
+    changePage(3);
     $(".active").addClass("completed").siblings().addClass("disabled")
 }
 
 function updateFinalForm() {
-    $("#_formTime").text(date+" at "+time)
-    $("#_formDoctor").text(doctor)
-    $("#_formDepartment").text(department)
+    var str = "\n";
+    var final = 0;
+    tests.forEach((val, index)=>{
+        var splits = val.split(",")
+        var name = splits[0]
+        var value = parseInt(splits[1].substring(3))
+        str +=  name+", ";
+        final += value;
+    })
+    $("#_formName").text(fullName)
+    $("#_formAddr").text(addr)
+    $("#_formContact").text(contact)
+
+    $("#_formTest").text(str)
+    $("#_formPrice").text("₹ "+final)
 }
 
 function getPayment() {
-    function isTimeSelected() {
-        return selectedTime != -1;
-    }
-
-    function isDateSelected() {
-        return document.getElementById('_date').validity.valid
-    }
-    if (!isTimeSelected() && !isDateSelected())
-        showNotif("red", "Please select appropriate date and time");
-    else if (!isDateSelected())
-        showNotif("red", "Please select a date");
-    else if (!isTimeSelected())
-        showNotif("red", "Please select a time");
-    else {
-        date = $('#_date').val();
-        time = timeTable[selectedTime];
-        console.log(date, time)
-        changePage(3);
-        updateFinalForm();
-    }
+    fullName = $("input[name=first-name]").val()
+    addr = $("input[name=shipping-address]").val()
+    contact = $("input[name=contact]").val()
+    changePage(2);
+    updateFinalForm();
 }
 
 
@@ -175,10 +169,16 @@ function showNotif(color, message = null) {
     setTimeout(removeNotif, 8000)
 }
 
+function addTest(elem){
+    $("#right_target").append(elem.target);
+    $(elem.target).children()[1].remove()
+    $(elem.target).css("background-color", "orange")
+    $(elem.target).css("color", "white")
+    $(elem.target).click(()=>{})
+    tests.push($(elem.target).text().trim())
+    console.log(tests)
+}
 
-getContent(getAddr("/get_departments"), "#department_target", "#department_template", getDoctors, 0);
+getContent(getAddr("/get_medicine"), "#test_target", "#test_template", addTest, 1);
 $(".ui.sticky").sticky()
-var tomorrow = new Date();
-tomorrow.setDate(tomorrow.getDate() + 1);
-var minDate = tomorrow.toISOString().split('T')[0];
-document.getElementsByName("date")[0].setAttribute('min', minDate);
+$("#p1").click(getPayment)

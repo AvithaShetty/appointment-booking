@@ -2,7 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./static/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
@@ -10,6 +10,12 @@
 
 <body>
     <div id="content_div">
+        <div class="ui segment right floated raised"  id="_ambulance">
+            <a href="tel:5551234567">
+            <img src="static/ambulance.gif" >
+            <h1 style="display: inline; color:white">&nbsp; &nbsp;Call an ambulance</h1>
+            </a>
+        </div>
         <p class="_header">
             My Hospital
             <i class="heartbeat icon small"></i>
@@ -26,14 +32,16 @@
         <p id="slogan">
             Making Healthcare Better Together!!
         </p>
+        
     </div>
 
     <div id="sign_div">
+
         <div class="ui segment center aligned" id="container1">
             <h1 class="ui center aligned icon header">
                 Sign in
             </h1>
-            <form action ="javascript:Login()" id="loginForm">
+            <form action="javascript:Login()" id="loginForm">
                 <div class="ui input vertical buttons">
                     <div class="ui left icon input _spaced">
                         <i class="user icon"></i>
@@ -56,9 +64,9 @@
                     Sign up here ✔
                 </div>
             </div>
+            
         </div>
     </div>
-
 
 
     <!-- Modal Signup sheet -->
@@ -68,7 +76,7 @@
 
         <div class="header">Sign up here</div>
         <div class="content">
-            <form class="ui form" action = "javascript:Register()" id="signupForm">
+            <form class="ui form" action="javascript:Register()" id="signupForm">
                 <div class="two fields">
                     <div class="field">
                         <input type="text" name="first-name" placeholder="First Name">
@@ -97,17 +105,21 @@
                         Back
                     </div>
                 </div>
+            </form>
+            
         </div>
-        </form>
     </div>
+
+
 
     <div id="notification" style="display: none;">
         Sample
         <span class="dismiss">
-            <a title="dismiss this notification">X</a></span>
+            <a title="dismiss this notification">X</a>
+        </span>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-    <script type="text/javascript" src="./login.js"></script>
+    <script type="text/javascript" src="./static/login.js"></script>
 
 </body>

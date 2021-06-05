@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="./static/medicine.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title> Book Medicines </title>
+</head>
+
+<body>
+
+
+  <!-- SEMANTIC STEPS -->
+  <div class="ui sticky ordered steps fluid">
+    <div class="link active step" id="test_step" onclick="changePage(0)">
+      <div class="content">
+        <div class="title">Select Medicines</div>
+        <div class="description">Choose your meidication</div>
+      </div>
+    </div>
+    <div class="link disabled step" id="slot_step" onclick="changePage(1)">
+      <div class="content">
+        <div class="title">Provide address</div>
+        <div class="description">Enter your delivery address</div>
+      </div>
+    </div>
+    <div class="link disabled step" id="confirmation_step" onclick="changePage(2)">
+      <div class="content">
+        <div class="title">Confirmation and Payment</div>
+      </div>
+    </div>
+    <div class="link disabled step" id="payment_step" onclick="changePage(3)">
+      <div class="content">
+        <div class="title">Appointment Confirmed</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTAINERS -->
+
+  <div id="test_container">
+    <div class="ui teal inverted segment center aligned container fluid ">
+      <h1 class="ui inverted header">Choose Medication</h1>
+      <button class="ui right floated labeled icon button" id="nextpageButton" onclick="getSlot()">
+        Next Page
+        <i class="right chevron icon"></i>
+      </button>
+    </div>
+
+
+    <div class="split leftside">
+      <div class="ui container" style="padding:1rem" id="test_target">
+      </div>
+    </div>
+
+    <div class="split rightside">
+      <div class="ui center aligned container" style="padding:1rem;" id="right_target">
+      </div>
+    </div>
+  </div>
+
+
+  <div id="slot_container">
+    <div class="ui teal inverted segment center aligned container fluid">
+      <h1 class="ui inverted header">
+        Provide the delivery address</h1>
+    </div>
+    <div class="ui container raised segment" style="margin-top: 5%; ">
+      <form class="ui large form">
+        <h1> Please provide recipient's contact details </h1> <br>
+        <div class="field">
+          <label>Name</label>
+          <input type="text" name="first-name" placeholder="Name">
+        </div>
+
+        <div class="field">
+          <label>Address</label>
+          <input type="text" name="shipping-address" placeholder="Address">
+        </div>
+        <br>
+        <div class="field">
+          <label>Contact Number</label>
+          <input type="number" name="contact" placeholder="Contact Number">
+        </div>
+        <div class="ui green submit button" id="p1">Proceed to confirmation</div>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="confirmation_container">
+    <div class="ui card" id="_cardContainer">
+      <div class="content" style=" border-bottom-style: ridge; background-color: royalblue;text-align: center;">
+        <div class="header" style="font-size: large; font-style: inherit; color:white">Appointment Confirmation
+        </div>
+      </div>
+      <div class="content">
+        <h3>
+          Your Medicine will be delivered to <span id="_formName" class="_formContent"></span>
+        </h3>
+        <h3>
+          Address <span id="_formAddr" class="_formContent"></span>
+        </h3>
+        <h3>
+          Contact number <span id="_formContact" class="_formContent"></span>
+        </h3>
+        <h3>
+          Medicine's Name: <span id="_formTest" class="_formContent"></span>
+        </h3>
+        <h3>
+          Final Price: <span id="_formPrice" class="_formContent"></span>
+        </h3>
+        <div class="ui buttons fluid">
+          <div class="ui blue button" id="p1" onClick="getConfirmation()">Pay on Arrival</div>
+          <div class="or"></div>
+          <div class="ui positive button" id="p2" onClick="getConfirmation()">Pay Now</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="payment_container">
+    <div id="_cardContainer2">
+      <img src="./static/icon.png"><br>
+      <h3 style="text-align: center; font-size: xx-large; font-style: italic;">Payment Successful</h3>
+    </div>
+  </div>
+
+  <!-- TEMPLATES -->
+
+
+  <script type="text/html" id="test_template">
+    <div class="ui raised segment _spaced" style="font-size: large;" id="{{id_name}}">
+      <span>{{NAME}},{{PRICE}}
+      </span>
+      <i class="add icon right aligned"></i>
+    </div>
+  </script>
+
+  <div id="notification" style="display: none;">
+    Sample
+    <span class="dismiss">
+      <a title="dismiss this notification">X</a></span>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+  <script src="./static/medicine.js"></script>
+</body>
+
+</html>

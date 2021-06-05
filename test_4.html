@@ -1,165 +1,120 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        
+    </style>
+</head>
 
-    </head>
-    
-    <script src="book_test.js"></script> 
-    <body>
-        <div class="ui center aligned container" style="padding-top: 20px;">
-            
-            <div class="ui blue horizontal raised label" style="font-size: large; width: 500px; height: 50px;">Select Date : 
-                
-                <input type="date" name="date"> 
-                
-            </div> 
+<body>
+    <div class="ui center aligned container">
+        <div class="ui blue horizontal raised huge text label" >Select Date :
+            <input type="date" name="date">
+        </div>
+    </div>
+
+    <div class="ui three column grid center aligned container" style="margin: 30px; border-style: double;">
+        <div class="column">
+            <div class="ui green label huge text fluid" >
+                    Morning &nbsp;
+                </span>
+                <i class="material-icons"> wb_sunny </i>
+            </div>
         </div>
 
-        <div class="ui four column grid center aligned doubling container" style="margin: 30px; border-style: double;">
-            <div class="row">
-                <div class="column" >
-                    <div class="ui blue label huge text" style="padding-right: 2px;"> 
-                        Availability  
-                      <i class="large arrow circle right icon"></i>
-                    </div> 
-                </div>
-                
-
-                <div class="column">
-                    <div class="ui green label huge text" style="padding-left: 38px; padding-right: 38px"> 
-                        <span style="position: relative; bottom:5px;">
-                        Morning &nbsp;
-                        </span>
-                        <i class="material-icons" > wb_sunny </i>
-                    </div> 
-                </div>
-
-                <div class="column">
-                    <div class="ui green label huge text" style="padding-left: 25px; padding-right: 25px"> 
-                        <span style="position: relative; bottom:5px;">
-                            Afternoon &nbsp;
-                        </span>
-                    <i class="material-icons" > brightness_high </i>
-                    </div> 
-                </div>
-
-                <div class="column">
-                    <div class="ui green label huge text" style="padding-left: 38px; padding-right: 38px"> 
-                        <span style="position: relative; bottom:5px;">
-                        Evening &nbsp;
-                        </span>
-                    <i class="material-icons" > wb_cloudy </i>
-                    </div> 
-                </div>
+        <div class="column">
+            <div class="ui yellow label huge text fluid" >
+                    Afternoon &nbsp;
+                </span>
+                <i class="material-icons"> brightness_high </i>
             </div>
-            
-            <div class="row"> </div>
         </div>
 
-        <!-- <div class="ui menu" >
-            <a class="item">
-                07:00 AM
-            </a>
-            <a class="item">
-                12:00 PM
-            </a>
-            <a class="item">
-                04:00 PM
-            </a>
-        </div> -->
-
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
-            </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+        <div class="column">
+            <div class="ui blue label huge text fluid" >
+                    Evening &nbsp;
+                </span>
+                <i class="material-icons"> wb_cloudy </i>
+            </div>
         </div>
-          
-            <div class="row">
-                <div class="column"></div>
-                <div class="column">
-                    <div class="ui button raised segment" > 07:00 AM</div>
-                </div>
-                <div class=" column">
-                    <div class="ui button raised segment"> 12:00 PM</div>
-                </div>
-                <div class="column">
-                    <div class="ui button raised segment"> 04:00 PM</div>
-                </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="ui button raised segment "> 07:00 AM</div>
             </div>
-
-            <div class="row"></div>
-
-            <div class="row">
-                <div class="column"></div>
-                <div class=" column">
-                    <div class="ui button raised segment"> 08:00 AM</div>
-                </div>
-                <div class="column">
-                    <div class="ui button raised segment"> 12:30 PM</div>
-                </div>
-                <div class="column">
-                    <div class="ui button raised segment"> 04:30 PM</div>
-                </div>
+            <div class=" column">
+                <div class="ui button raised segment"> 12:00 PM</div>
             </div>
-
-            <div class="row"></div>
-
-            <div class="row">
-                <div class="column"></div>
-                <div class="column">
-                    <div class="ui button raised segment"> 09:00 AM</div>
-                </div>
-                <div class="column">
-                    <div class="ui button raised segment"> 01:20 PM</div>
-                </div>
-                <div class="column">
-                    <div class="ui button raised segment"> 05:00 PM</div>
-                </div>
+            <div class="column">
+                <div class="ui button raised segment"> 04:00 PM</div>
             </div>
-
-            <div class="row"></div>
-            
-            <div class="row">
-                <div class="column"></div>
-                <div class="column">
-                    <div class="ui button raised segment"> 10:00 AM</div>
-                </div>
-                <div class="column">
-                    <div class="ui button raised segment"> 02:15 PM</div>
-                </div>
-                <div class="column"></div>
-            </div>
-
-            <div class="row"></div>
-
-            <div class="row">
-                <div class="column"></div>
-                <div class="column">
-                    <div class="ui button raised segment"> 11:00 AM</div>
-                </div>
-                <div class="column">
-                    <div class="ui button raised segment"> 03:30 PM</div>
-                </div>
-                <div class="column"></div>
-            </div>
-            
         </div>
-    </body>
+
+
+        <div class="row">
+            <div class=" column">
+                <div class="ui button raised segment"> 08:00 AM</div>
+            </div>
+            <div class="column">
+                <div class="ui button raised segment"> 12:30 PM</div>
+            </div>
+            <div class="column">
+                <div class="ui button raised segment"> 04:30 PM</div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="column">
+                <div class="ui button raised segment"> 09:00 AM</div>
+            </div>
+            <div class="column">
+                <div class="ui button raised segment"> 01:20 PM</div>
+            </div>
+            <div class="column">
+                <div class="ui button raised segment"> 05:00 PM</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="ui button raised segment"> 10:00 AM</div>
+            </div>
+            <div class="column">
+                <div class="ui button raised segment"> 02:15 PM</div>
+            </div>
+            <div class="column"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="column">
+                <div class="ui button raised segment"> 11:00 AM</div>
+            </div>
+            <div class="column">
+                <div class="ui button raised segment" id="adw" onclick="()=>{}"> 03:30 PM</div>
+            </div>
+            <div class="column"></div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script>
+        var time = null;
+
+        // $(".ui.button").click(()=>{
+        //     console.log($(time).attr('id'))
+        //     if(time != null)
+        //         $().removeClass('active')
+        //     time = this;
+        // });
+    </script>
+</body>
+
 </html>

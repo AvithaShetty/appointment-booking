@@ -58,6 +58,25 @@ def test():
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
+@app.route("/get_medicine", methods=['GET'])
+def med():
+    cnxn = pyodbc.connect(connectionString)
+    cursor = cnxn.cursor()
+    cursor.execute("SELECT * FROM MEDICINE")
+    columns = [column[0] for column in cursor.description]
+    rows = cursor.fetchall()
+    count = len(rows)
+    results = []
+    for row in rows:
+        results.append( dict(zip(columns, row)) )
+
+    # don't modify this
+    cursor.commit()
+    cnxn.close()
+    response = jsonify({"number":count,"results":results})
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
+
 @app.route('/success/<name>')
 def success(name):
    return 'welcome %s' % name
@@ -111,13 +130,11 @@ def validateLogin():
     # don't modify this
     cursor.commit()
     cnxn.close()
-    response = jsonify({"results":results})
+    response = jsonify({"results":results, 'redirect_url':'./home.html'})
+    print(results[0]["message"])
     response.headers.add("Access-Control-Allow-Origin", "*")
     print(results[0]["code"], type(results[0]["code"]))
-    if results[0]["code"] == 1:
-        return render_template('home.html')
-    else:
-        return response
+    return response
     
 @app.route('/register', methods=["POST"])
 def register():
@@ -151,13 +168,13 @@ def register():
     # don't modify this
     cursor.commit()
     cnxn.close()
-    response = jsonify({"results":results})
+    print(results[0]["code"], results[0]['message'])
+
+    if (results[0]["code"] == 0 and results[0]["message"].find("Violation of UNIQUE KEY constraint") != -1):
+        results[0]["message"] = "User already exists";
+    response = jsonify({"results":results, 'redirect_url':'./home.html'})
     response.headers.add("Access-Control-Allow-Origin", "*")
-    print(results[0]["code"], type(results[0]["code"]))
-    if results[0]["code"] == 1:
-        return render_template('home.html')
-    else:
-        return response
+    return response
 
 
 # don't modify below here

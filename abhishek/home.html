@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
-    <link rel="stylesheet" href="../static/home_page.css">
+    <link rel="stylesheet" href="./static/home_page.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
 </head>
@@ -23,9 +23,8 @@
                 <h3> Easily book an appointment before you reach the Hospital </h3>
                 <i class="stethoscope icon massive blue" style="margin:30px;"></i> <br>
                 <div class="ui animated fade button" id="b1" tabindex="0">
-                    <div class="visible content"> Book an appointment </div>
-                    <div class="hidden content"
-                        onclick="window.open('/book appointment/appointment_details.html', '_blank')"> Book now </div>
+                    <div class="visible content" > Book an appointment </div>
+                    <div class="hidden content"> Book now </div>
                 </div>
 
             </div>
@@ -35,7 +34,7 @@
 
                 <h3> Book Health checkup and Lab tests and avoid the hassle of standing in queues </h3>
                 <i class="dna icon massive blue" style="margin:30px;"></i> <br>
-                <div class="ui animated fade button" tabindex="0">
+                <div class="ui animated fade button" id="b2" tabindex="0">
                     <div class="visible content"> Book slot for test </div>
                     <div class="hidden content"> Book now </div>
                 </div>
@@ -47,7 +46,7 @@
 
                 <h3> Stay within the comfort of your home and get medicines delivered directly to your home </h3>
                 <i class="pills icon massive blue" style="margin:19px;"></i> <br>
-                <div class="ui animated fade button" tabindex="0">
+                <div class="ui animated fade button" id="b3" tabindex="0">
                     <div class="visible content"> Order Medicines </div>
                     <div class="hidden content"> Order now </div>
                 </div>
@@ -59,7 +58,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-    <script type="text/javascript" src="../static/home_page.js"></script>
+    <script type="text/javascript" src="./static/home_page.js"></script>
 </body>
 
 </html>

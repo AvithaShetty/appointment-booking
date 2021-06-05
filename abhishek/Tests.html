@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="./static/appointment.css" />
+  <link rel="stylesheet" href="./static/test.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <title> Book Appointment </title>
+  <title> Book Tests </title>
 </head>
 
 <body>
@@ -13,30 +13,24 @@
 
   <!-- SEMANTIC STEPS -->
   <div class="ui sticky ordered steps fluid">
-    <div class="link active step" id="department_step" onclick="changePage(0)">
+    <div class="link active step" id="test_step" onclick="changePage(0)">
       <div class="content">
-        <div class="title">Department</div>
-        <div class="description">Choose your department</div>
+        <div class="title">Select Test</div>
+        <div class="description">Choose your tests</div>
       </div>
     </div>
-    <div class=" link disabled step" id="doctor_step" onclick="changePage(1)">
-      <div class="content">
-        <div class="title">Doctor</div>
-        <div class="description">Select the doctor</div>
-      </div>
-    </div>
-    <div class="link disabled step" id="slot_step" onclick="changePage(2)">
+    <div class="link disabled step" id="slot_step" onclick="changePage(1)">
       <div class="content">
         <div class="title">Slot</div>
         <div class="description">Select an appropriate slot</div>
       </div>
     </div>
-    <div class="link disabled step" id="confirmation_step" onclick="changePage(3)">
+    <div class="link disabled step" id="confirmation_step" onclick="changePage(2)">
       <div class="content">
         <div class="title">Confirmation and Payment</div>
       </div>
     </div>
-    <div class="link disabled step" id="payment_step" onclick="changePage(4)">
+    <div class="link disabled step" id="payment_step" onclick="changePage(3)">
       <div class="content">
         <div class="title">Appointment Confirmed</div>
       </div>
@@ -45,21 +39,36 @@
 
   <!-- CONTAINERS -->
 
-  <div id="department_container">
+  <div id="test_container">
     <div class="ui teal inverted segment center aligned container fluid ">
-      <h1 class="ui inverted header">Choose Department</h1>
+      <h1 class="ui inverted header">Choose test</h1>
+      <button class="ui right floated labeled icon button" id="nextpageButton" onclick="getSlot()">
+        Next Page
+        <i class="right chevron icon"></i>
+      </button>
     </div>
-    <div class="ui three column grid center aligned" style="padding:3rem" id="department_target">
+    
+    
+    
+    <div class ="split leftside">
+      
+      <div class="ui container" style="padding:1rem" id="test_target">
+
+        
+      
+      </div>
     </div>
+    
+    <div class ="split rightside">
+      <div class="ui center aligned container" style="padding:1rem;" id="right_target">
+  
+      </div>
+
+    
+    </div>
+    
   </div>
 
-  <div id="doctor_container">
-    <div class="ui teal inverted segment center aligned container fluid">
-      <h1 class="ui inverted header">Choose Doctor</h1>
-    </div>
-    <div class="ui three column center aligned grid" style="padding:3rem" id="doctor_target">
-    </div>
-  </div>
 
   <div id="slot_container">
     <div class="ui teal inverted segment center aligned container fluid">
@@ -78,14 +87,14 @@
           <div class="ui green label huge text fluid">
             Morning Slot &nbsp;
             </span>
-            <i class="material-icons"> wb_sunny </i>
+            <i class="material-icons _icons"> wb_sunny </i>
           </div>
         </div>
         <div class="column">
           <div class="ui yellow label huge text fluid">
             Afternoon Slot &nbsp;
             </span>
-            <i class="material-icons"> brightness_high </i>
+            <i class="material-icons _icons"> brightness_high </i>
           </div>
         </div>
 
@@ -93,7 +102,7 @@
           <div class="ui blue label huge text fluid">
             Evening Slot &nbsp;
             </span>
-            <i class="material-icons"> wb_cloudy </i>
+            <i class="material-icons _icons"> wb_cloudy </i>
           </div>
         </div>
       </div>
@@ -116,13 +125,10 @@
           Your Appointment is scheduled on: <span id="_formTime" class="_formContent"></span> 
         </h3>
         <h3> 
-          Doctor's Name: <span id="_formDoctor" class="_formContent"></span> 
+          Test's Name: <span id="_formTest" class="_formContent"></span> 
         </h3>
         <h3>
-          Department: <span id= "_formDepartment" class="_formContent"></span>
-        </h3>
-        <h3>
-          Department: <span id= "_formPrice" class="_formContent">₹ 350</span>
+          Final Price: <span id= "_formPrice" class="_formContent"></span>
         </h3>
         <div class="ui buttons fluid">
           <div class="ui blue button" id="p1" onClick="getConfirmation()">Pay on Arrival</div>
@@ -152,7 +158,7 @@
           <h2 class="ui sub header" style="font-size: small;">
             Designation:
           </h2>
-          Consultant - {{DEPARTMENT}} <br>
+          Consultant - {{test}} <br>
           <h2 class="ui sub header" style="font-size: small;">
             Qualification:
           </h2>
@@ -165,10 +171,12 @@
     </div>
   </script>
 
-  <script type="text/html" id="department_template">
-      <div class="column">
-        <div class="ui button raised segment" style="font-size:large; height: 55px;" id="{{id_name}}">{{dept}}</div>
-      </div>
+  <script type="text/html" id="test_template">
+    <div class="ui raised segment _spaced" style="font-size: large;" id="{{id_name}}">
+      <span>{{NAME}},{{PRICE}}
+      </span>
+      <i class="add icon right aligned"></i>
+    </div>
   </script>
 
   <script type="text/html" id="slot_template">
@@ -185,7 +193,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
-  <script src="./static/appointment.js"></script>
+  <script src="./static/test.js"></script>
 </body>
 
 </html>
